@@ -5,6 +5,7 @@ public class Purchase {
     public long amount;
 
     public Purchase() {
+        new OutputView().printMessage("구입금액을 입력해 주세요.");
         String lineInput = new InputView().getLineInput();
         try {
             validate(lineInput);
@@ -26,7 +27,7 @@ public class Purchase {
             if(charAtIndex <= '9' && charAtIndex >= '0') continue;
             throw new IllegalArgumentException("[ERROR] 숫자를 입력해주세요.");
         }
-    };
+    }
 
     private void isInputInUnitOf1000(String input) {
         int inputNumber = Integer.parseInt(input);

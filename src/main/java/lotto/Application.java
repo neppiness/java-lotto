@@ -1,9 +1,16 @@
 package lotto;
 
+import java.util.List;
+
 public class Application {
+
+    private static final int LottoPrice = 1000;
+
     public static void main(String[] args) {
         long purchaseAmount = new Purchase().amount;
-        // PurchaseAmount 클래스를 통해서 구매 금액을 받음
+        long numberOfLotto = purchaseAmount / LottoPrice;
+        List<List<Integer>> generatedLotto = new Generator().generateLotto(numberOfLotto);
+        new OutputView().printLotto(generatedLotto);
         // Lotto에서 generate해서 OutputView로 전달
         // 구매한 로또 수만큼 로또 목록 생성
         // 당첨번호 입력 (InputView) 클래스를 통함
