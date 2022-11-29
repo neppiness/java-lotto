@@ -7,12 +7,7 @@ public class Purchase {
     public Purchase() {
         new OutputView().printMessage("구입금액을 입력해 주세요.");
         String lineInput = new InputView().getLineInput();
-        try {
-            validate(lineInput);
-        } catch(IllegalArgumentException e) {
-            new OutputView().printMessage(e.getMessage());
-            throw new IllegalArgumentException();
-        }
+        validate(lineInput);
         this.amount = Integer.parseInt(lineInput);
     }
 

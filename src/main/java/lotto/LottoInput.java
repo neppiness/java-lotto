@@ -25,9 +25,7 @@ public class LottoInput {
         return lottoInput;
     }
 
-    private void validate() {
-        hasOnlyCommasAndNumbers();
-    }
+    private void validate() { hasOnlyCommasAndNumbers(); }
 
     private boolean isComma(char charAtIndex) { return charAtIndex == ','; }
     private boolean isNumber(char charAtIndex) { return (charAtIndex >= '0' && charAtIndex <= '9'); }
@@ -39,6 +37,4 @@ public class LottoInput {
                 throw new IllegalArgumentException();
         }
     }
-
-
 }
