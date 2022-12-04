@@ -16,6 +16,16 @@ public class OutputView {
         System.out.println(lottoNumbers);
     }
 
+    public static void guideWinningNumbersInput() {
+        print("당첨 번호를 입력해 주세요.");
+        print("중복없는 1 이상 45 이하의 자연수 6개를 쉼표로 구분해 입력해야 합니다.");
+    }
+
+    public static void guideBonusNumberInput() {
+        print("보너스 번호를 입력해 주세요.");
+        print("당첨 번호와 중복되지 않는 1 이상 45 이하의 자연수 1개를 입력해야 합니다.");
+    }
+
     private static void print(String output) {
         System.out.println(output);
     }

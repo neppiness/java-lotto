@@ -8,6 +8,8 @@ public class GameRunner {
 
     private List<Lotto> lottos = new ArrayList<>();
     private Lotto winningNumbers;
+
+    private int bonusNumber;
     private int purchaseAmount;
     private int numberOfLottos;
 
@@ -15,8 +17,8 @@ public class GameRunner {
         setPurchaseAmount();
         generateLottos();
         printLottos();
-        // TODO: Guide winningNumber input and get
-        // TODO: Guide bonusNumber input and get
+        setWinningNumbers();
+        setBonusNumbers();
         // TODO: Print statistics
         // TODO: Print earningRates
     }
@@ -38,5 +40,18 @@ public class GameRunner {
 
     private void printLottos() {
         for (Lotto lotto : lottos) lotto.print();
+    }
+
+    private void setWinningNumbers() {
+        OutputView.guideWinningNumbersInput();
+        List<Integer> inputNumbers = WinningNumbers.get();
+        this.winningNumbers = new Lotto(inputNumbers);
+    }
+
+    private void setBonusNumbers() {
+        OutputView.guideBonusNumberInput();
+        int number = BonusNumber.get();
+        this.winningNumbers.validateBonusNumber(number);
+        this.bonusNumber = number;
     }
 }
