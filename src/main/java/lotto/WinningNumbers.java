@@ -1,6 +1,7 @@
 package lotto;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class WinningNumbers {
@@ -13,6 +14,7 @@ public class WinningNumbers {
             int number = Integer.parseInt(numberInString);
             inputNumbers.add(number);
         }
+        Collections.sort(inputNumbers);
         return inputNumbers;
     }
 }

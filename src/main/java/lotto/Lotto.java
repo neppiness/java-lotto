@@ -10,13 +10,13 @@ public class Lotto {
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
-        Collections.sort(numbers);
         validate(numbers);
         this.numbers = numbers;
     }
 
     public static Lotto generate() {
         List<Integer> generatedNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        Collections.sort(generatedNumbers);
         return new Lotto(generatedNumbers);
     }
 
@@ -29,13 +29,18 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         hasSixNumber(numbers);
-        hasNoDuplicatedNumber(numbers);
         isNumbersInValidRange(numbers);
+        hasNoDuplicatedNumber(numbers);
     }
 
     private void hasSixNumber(List<Integer> numbers) {
         if (numbers.size() != 6)
             throw new IllegalArgumentException("당첨 번호는 숫자 6개로 구성해야 합니다.");
+    }
+
+    private void isNumbersInValidRange(List<Integer> numbers) {
+        for (int number : numbers)
+            checkNumberRange(number);
     }
 
     private void hasNoDuplicatedNumber(List<Integer> numbers) {
@@ -45,11 +50,6 @@ public class Lotto {
                 throw new IllegalArgumentException("중복된 숫자는 당첨 번호로 사용할 수 없습니다.");
             isUsed[number] = true;
         }
-    }
-
-    private void isNumbersInValidRange(List<Integer> numbers) {
-        for (int number : numbers)
-            checkNumberRange(number);
     }
 
     private void checkNumberRange(int number) {
