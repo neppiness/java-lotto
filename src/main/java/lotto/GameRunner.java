@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameRunner {
+
     private static final int PRICE_OF_LOTTO = 1000;
 
     private List<Lotto> lottos = new ArrayList<>();
@@ -19,6 +20,8 @@ public class GameRunner {
         printLottos();
         setWinningNumbers();
         setBonusNumbers();
+
+        // TODO: Compare result
         // TODO: Print statistics
         // TODO: Print earningRates
     }
