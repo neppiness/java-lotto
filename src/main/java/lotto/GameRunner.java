@@ -20,10 +20,14 @@ public class GameRunner {
         printLottos();
         setWinningNumbers();
         setBonusNumbers();
+        getResult();
+    }
 
-        // TODO: Compare result
-        // TODO: Print statistics
-        // TODO: Print earningRates
+    private void getResult() {
+        Result result = new Result(this.lottos, this.winningNumbers, this.bonusNumber);
+        result.compare();
+        result.print();
+        result.printEarningRates(numberOfLottos);
     }
 
     private void setPurchaseAmount() {
@@ -35,7 +39,7 @@ public class GameRunner {
 
     private void generateLottos() {
         int temp = this.numberOfLottos;
-        while (--temp > 0) {
+        while (temp-- > 0) {
             Lotto lotto = Lotto.generate();
             this.lottos.add(lotto);
         }

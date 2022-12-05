@@ -27,6 +27,18 @@ public class Lotto {
         checkIfDuplicatedWithWinningNumbers(bonusNumber);
     }
 
+    public List<Integer> compare(Lotto winningNumbers, int bonusNumber) {
+        int numberOfMatchedNumber = 0;
+        int hasBonusNumber = 0;
+        for (int lottoNumber : this.numbers) {
+            if (winningNumbers.numbers.contains(lottoNumber))
+                numberOfMatchedNumber++;
+            if (lottoNumber == bonusNumber)
+                hasBonusNumber++;
+        }
+        return List.of(numberOfMatchedNumber, hasBonusNumber);
+    }
+
     private void validate(List<Integer> numbers) {
         hasSixNumber(numbers);
         isNumbersInValidRange(numbers);
